@@ -32,7 +32,8 @@ public class Write {
         try {
 			fw = new FileWriter(f);// 初始化输出流
 			bw = new BufferedWriter(fw);// 初始化输出字符流
-			bw.write(txt);
+			bw.write((new String(String.valueOf(txt).getBytes("utf-8"),"GBK")));
+			bw.flush();
 			bw.close();
 			fw.close();
 			System.out.println("保存完毕");
