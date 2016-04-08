@@ -5,27 +5,28 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args)
 	{
+		AddStudent D=new AddStudent();
+		D.add();
+
+		Set C=new Set();
+		C.ifrun();
+
         Menu A=new Menu();
         A.Menu1();
-  
-        
-        Main B=new Main();
-        B.Select();
-        
-        Set C=new Set();
-        C.Setclass();
-        
-		
+
+		Main B=new Main();
+		B.Select();
+
 	}
 	
 	public void Select(){
 		Scanner sc=new Scanner(System.in);
 		int select=sc.nextInt();
-		
+
 		switch(select)
 		{
 		case 1:
-			System.out.println("此时1");
+
 			break;
 		case 2:
 			System.out.println("此时2");

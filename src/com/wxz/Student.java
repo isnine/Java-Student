@@ -1,25 +1,18 @@
 package com.wxz;
 
 public class Student {
-   String name;
-   double number;
-   String class1;
-   String class2;
-   String class3;
-   String class4;
-   String class5;
-   String class6;
-   String class7;
-   String class8;
-   String class9;
-   int mark1;
-   int mark2;
-   int mark3;
-   int mark4;
-   int mark5;
-   int mark6;
-   int mark7;
-   int mark8;
-   int mark9;
+   public  String name;
+   public   double number;
+   public   String class1;
+   public   String class2;
+   public   String class3;
+   public  String class4;
+   public   String class5;
+
+   public int mark1;
+   public  int mark2;
+   public int mark3;
+   public int mark4;
+   public int mark5;
    
 }
