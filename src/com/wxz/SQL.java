@@ -155,6 +155,131 @@ public class SQL {
 	   }
 	 }
 
+	public void delect(String name){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序
+			//Class.forName("org.gjt.mm.mysql.Driver");
+		}
+		catch (Exception e) {
+			System.out.print("Error loading Mysql Driver!");
+			e.printStackTrace();
+		}
+		try {
+			Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost:3306/student?characterEncoding=utf8&useSSL=true","root","wwxz960909");
+			String sql = "delete from data where name=?";
+			PreparedStatement Statement=connect.prepareStatement(sql);
+			Statement.setString(1,name);
+			Statement.execute();
+
+
+			// } catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			// System.out.println("An error has occurred:"+e.toString());
+			//  e.printStackTrace();
+		}catch(SQLException e)
+		{
+		}
+	}
+
+	public void Showclassname(int classnum){
+		try{
+			//调用Class.forName()方法加载驱动程序
+			Class.forName("com.mysql.jdbc.Driver");
+
+		}catch(ClassNotFoundException e1){
+			System.out.println("找不到MySQL驱动!");
+			e1.printStackTrace();
+		}
+		try {
+			Connection connect = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/student?characterEncoding=utf8&useSSL=true","root","wwxz960909");
+			//连接URL为   jdbc:mysql//服务器地址/数据库名  ，后面的2个参数分别是登陆用户名和密码
+
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from sets");
+			//user 为你表的名称
+			switch (classnum)
+			{
+				case 1:
+					while (rs.next()) {
+
+						System.out.println("姓名    "+rs.getString("class1"));
+					}
+				case 2:
+					while (rs.next()) {
+						System.out.println("姓名    "+rs.getString("class1")+"    "+rs.getString("class2"));
+					}
+				case 3:
+					while (rs.next()) {
+						System.out.println("姓名    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3"));
+					}
+				case 4:
+					while (rs.next()) {
+						System.out.println("姓名    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3")+"    "+rs.getString("class4"));
+					}
+				case 5:
+					while (rs.next()) {
+						System.out.println("姓名    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3")+"    "+rs.getString("class4")+"    "+rs.getString("class5"));
+					}
+
+			}
+
+		}
+		catch (Exception e) {
+			System.out.print("get data error!");
+			e.printStackTrace();
+		}
+	}
+	public void ShowStudent(int classnum){
+		try{
+			//调用Class.forName()方法加载驱动程序
+			Class.forName("com.mysql.jdbc.Driver");
+
+		}catch(ClassNotFoundException e1){
+			System.out.println("找不到MySQL驱动!");
+			e1.printStackTrace();
+		}
+		try {
+			Connection connect = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/student?characterEncoding=utf8&useSSL=true","root","wwxz960909");
+			//连接URL为   jdbc:mysql//服务器地址/数据库名  ，后面的2个参数分别是登陆用户名和密码
+
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from data");
+			//user 为你表的名称
+			switch (classnum)
+			{
+				case 1:
+					while (rs.next()) {
+
+						System.out.println(rs.getString("name")+"    "+rs.getString("class1"));
+					}
+				case 2:
+					while (rs.next()) {
+						System.out.println(rs.getString("name")+"    "+rs.getString("class1")+"    "+rs.getString("class2"));
+					}
+				case 3:
+					while (rs.next()) {
+						System.out.println(rs.getString("name")+"    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3"));
+					}
+				case 4:
+					while (rs.next()) {
+						System.out.println(rs.getString("name")+"    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3")+"    "+rs.getString("class4"));
+					}
+				case 5:
+					while (rs.next()) {
+						System.out.println(rs.getString("name")+"    "+rs.getString("class1")+"    "+rs.getString("class2")+"    "+rs.getString("class3")+"    "+rs.getString("class4")+"    "+rs.getString("class5"));
+					}
+
+			}
+
+		}
+		catch (Exception e) {
+			System.out.print("get data error!");
+			e.printStackTrace();
+		}
+	}
+
 	public void writeset(int classnum,String class1){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序
